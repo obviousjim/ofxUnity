@@ -1,7 +1,7 @@
 ofxUnity
 ========
 
-openFrameworks compiled as a native Unity plug in. Nothing more implemented than a proof of concept compiling and drawing a simple mesh. Still seeing strange crashing...
+openFrameworks compiled as a native Unity plug in. Nothing more implemented than a proof of concept compiling and drawing a simple mesh. Still seeing strange crashing...	
 
 This is still very incomplete.
 
@@ -13,7 +13,13 @@ If you have a clone of openFrameworks do the following to switch to the right br
 	$ git fetch obviousjim
 	$ git checkout -b no-fmod obviousjim/no-fmod
 
+Then RenderPlugin.xcodeproj should Build, creating the RenderPlugin.bundle target
 
+After making modifications, right click the .bundle and Reveal in Finder
+
+Copy this into UnityProject/Assets/Plugins and restart Unity
+
+Run Unity!
 
 TODO:
 Create ofAppUnityWindow
