@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E7CC5EC716F19784005F850F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5EC616F19784005F850F /* CoreFoundation.framework */; };
+		E7CC5ECD16F19784005F850F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7CC5ECB16F19784005F850F /* InfoPlist.strings */; };
+		E7CC5ED916F197E0005F850F /* RenderingPlugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7CC5ED816F197E0005F850F /* RenderingPlugin.cpp */; };
+		E7CC5F3716F1FC40005F850F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F2816F1FC3F005F850F /* OpenGL.framework */; };
+		E7CC5F4216F20264005F850F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F1D16F1FC3F005F850F /* Accelerate.framework */; };
+		E7CC5F4316F20264005F850F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F1E16F1FC3F005F850F /* AppKit.framework */; };
+		E7CC5F4416F20264005F850F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F1F16F1FC3F005F850F /* Cocoa.framework */; };
+		E7CC5F4516F20264005F850F /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F2016F1FC3F005F850F /* IOKit.framework */; };
+		E7CC5F4616F20264005F850F /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F2116F1FC3F005F850F /* AGL.framework */; };
+		E7CC5F4716F20264005F850F /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F2216F1FC3F005F850F /* ApplicationServices.framework */; };
+		E7CC5F4816F20264005F850F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F2316F1FC3F005F850F /* AudioToolbox.framework */; };
+		E7CC5F4916F20264005F850F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F2416F1FC3F005F850F /* Carbon.framework */; };
+		E7CC5F4A16F20264005F850F /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F2516F1FC3F005F850F /* CoreAudio.framework */; };
+		E7CC5F4B16F20264005F850F /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F2716F1FC3F005F850F /* CoreServices.framework */; };
+		E7CC5F4C16F20264005F850F /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F2916F1FC3F005F850F /* QuickTime.framework */; };
+		E7CC5F4D16F20264005F850F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F2A16F1FC3F005F850F /* CoreVideo.framework */; };
+		E7CC5F4E16F20264005F850F /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F2B16F1FC3F005F850F /* QTKit.framework */; };
+		E7CC5F4F16F20264005F850F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5EDA16F1981E005F850F /* OpenGL.framework */; };
+		E7CC5F5016F20274005F850F /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F3F16F1FE02005F850F /* GLUT.framework */; };
+		E7CC5F5116F20281005F850F /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F1116F1FBDA005F850F /* openFrameworksDebug.a */; };
+		E7CC5F6116F2064B005F850F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5F6016F2064B005F850F /* OpenAL.framework */; };
+		E7CC5F7F16F207A4005F850F /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E7CC5F3F16F1FE02005F850F /* GLUT.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E7CC5F1016F1FBDA005F850F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7CC5F0916F1FBD9005F850F /* openFrameworksLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4B27C1510CBEB8E00536013;
+			remoteInfo = openFrameworks;
+		};
+		E7CC5F5216F20287005F850F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7CC5F0916F1FBD9005F850F /* openFrameworksLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E4B27C1410CBEB8E00536013;
+			remoteInfo = openFrameworks;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E7CC5F7E16F2077C005F850F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E7CC5F7F16F207A4005F850F /* GLUT.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E7CC5EC316F19784005F850F /* RenderingPlugin.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RenderingPlugin.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7CC5EC616F19784005F850F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		E7CC5ECA16F19784005F850F /* RenderingPlugin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RenderingPlugin-Info.plist"; sourceTree = "<group>"; };
+		E7CC5ECC16F19784005F850F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E7CC5ECE16F19784005F850F /* RenderingPlugin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RenderingPlugin-Prefix.pch"; sourceTree = "<group>"; };
+		E7CC5ED816F197E0005F850F /* RenderingPlugin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderingPlugin.cpp; sourceTree = "<group>"; };
+		E7CC5EDA16F1981E005F850F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		E7CC5F0916F1FBD9005F850F /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = "<group>"; };
+		E7CC5F1D16F1FC3F005F850F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = ../../../../../../../../../../System/Library/Frameworks/Accelerate.framework; sourceTree = "<group>"; };
+		E7CC5F1E16F1FC3F005F850F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = ../../../../../../../../../../System/Library/Frameworks/AppKit.framework; sourceTree = "<group>"; };
+		E7CC5F1F16F1FC3F005F850F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = ../../../../../../../../../../System/Library/Frameworks/Cocoa.framework; sourceTree = "<group>"; };
+		E7CC5F2016F1FC3F005F850F /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = ../../../../../../../../../../System/Library/Frameworks/IOKit.framework; sourceTree = "<group>"; };
+		E7CC5F2116F1FC3F005F850F /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = ../../../../../../../../../../System/Library/Frameworks/AGL.framework; sourceTree = "<group>"; };
+		E7CC5F2216F1FC3F005F850F /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = ../../../../../../../../../../System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<group>"; };
+		E7CC5F2316F1FC3F005F850F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = ../../../../../../../../../../System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<group>"; };
+		E7CC5F2416F1FC3F005F850F /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = ../../../../../../../../../../System/Library/Frameworks/Carbon.framework; sourceTree = "<group>"; };
+		E7CC5F2516F1FC3F005F850F /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = ../../../../../../../../../../System/Library/Frameworks/CoreAudio.framework; sourceTree = "<group>"; };
+		E7CC5F2716F1FC3F005F850F /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = ../../../../../../../../../../System/Library/Frameworks/CoreServices.framework; sourceTree = "<group>"; };
+		E7CC5F2816F1FC3F005F850F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../../../../../../../../System/Library/Frameworks/OpenGL.framework; sourceTree = "<group>"; };
+		E7CC5F2916F1FC3F005F850F /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = ../../../../../../../../../../System/Library/Frameworks/QuickTime.framework; sourceTree = "<group>"; };
+		E7CC5F2A16F1FC3F005F850F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = ../../../../../../../../../../System/Library/Frameworks/CoreVideo.framework; sourceTree = "<group>"; };
+		E7CC5F2B16F1FC3F005F850F /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = ../../../../../../../../../../System/Library/Frameworks/QTKit.framework; sourceTree = "<group>"; };
+		E7CC5F3B16F1FCAA005F850F /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = SOURCE_ROOT; };
+		E7CC5F3F16F1FE02005F850F /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
+		E7CC5F6016F2064B005F850F /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E7CC5EC016F19784005F850F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7CC5F6116F2064B005F850F /* OpenAL.framework in Frameworks */,
+				E7CC5F5116F20281005F850F /* openFrameworksDebug.a in Frameworks */,
+				E7CC5F4216F20264005F850F /* Accelerate.framework in Frameworks */,
+				E7CC5F4316F20264005F850F /* AppKit.framework in Frameworks */,
+				E7CC5F4416F20264005F850F /* Cocoa.framework in Frameworks */,
+				E7CC5F4516F20264005F850F /* IOKit.framework in Frameworks */,
+				E7CC5F4616F20264005F850F /* AGL.framework in Frameworks */,
+				E7CC5F4716F20264005F850F /* ApplicationServices.framework in Frameworks */,
+				E7CC5F4816F20264005F850F /* AudioToolbox.framework in Frameworks */,
+				E7CC5F4916F20264005F850F /* Carbon.framework in Frameworks */,
+				E7CC5F4A16F20264005F850F /* CoreAudio.framework in Frameworks */,
+				E7CC5F4B16F20264005F850F /* CoreServices.framework in Frameworks */,
+				E7CC5F3716F1FC40005F850F /* OpenGL.framework in Frameworks */,
+				E7CC5F4C16F20264005F850F /* QuickTime.framework in Frameworks */,
+				E7CC5F4D16F20264005F850F /* CoreVideo.framework in Frameworks */,
+				E7CC5F4E16F20264005F850F /* QTKit.framework in Frameworks */,
+				E7CC5F4F16F20264005F850F /* OpenGL.framework in Frameworks */,
+				E7CC5EC716F19784005F850F /* CoreFoundation.framework in Frameworks */,
+				E7CC5F5016F20274005F850F /* GLUT.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E7CC5EB816F19784005F850F = {
+			isa = PBXGroup;
+			children = (
+				E7CC5F0916F1FBD9005F850F /* openFrameworksLib.xcodeproj */,
+				E7CC5EC816F19784005F850F /* RenderingPlugin */,
+				E7CC5EC516F19784005F850F /* Frameworks */,
+				E7CC5EC416F19784005F850F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E7CC5EC416F19784005F850F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E7CC5EC316F19784005F850F /* RenderingPlugin.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E7CC5EC516F19784005F850F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7CC5F6016F2064B005F850F /* OpenAL.framework */,
+				E7CC5F3F16F1FE02005F850F /* GLUT.framework */,
+				E7CC5F1D16F1FC3F005F850F /* Accelerate.framework */,
+				E7CC5F1E16F1FC3F005F850F /* AppKit.framework */,
+				E7CC5F1F16F1FC3F005F850F /* Cocoa.framework */,
+				E7CC5F2016F1FC3F005F850F /* IOKit.framework */,
+				E7CC5F2116F1FC3F005F850F /* AGL.framework */,
+				E7CC5F2216F1FC3F005F850F /* ApplicationServices.framework */,
+				E7CC5F2316F1FC3F005F850F /* AudioToolbox.framework */,
+				E7CC5F2416F1FC3F005F850F /* Carbon.framework */,
+				E7CC5F2516F1FC3F005F850F /* CoreAudio.framework */,
+				E7CC5F2716F1FC3F005F850F /* CoreServices.framework */,
+				E7CC5F2816F1FC3F005F850F /* OpenGL.framework */,
+				E7CC5F2916F1FC3F005F850F /* QuickTime.framework */,
+				E7CC5F2A16F1FC3F005F850F /* CoreVideo.framework */,
+				E7CC5F2B16F1FC3F005F850F /* QTKit.framework */,
+				E7CC5EDA16F1981E005F850F /* OpenGL.framework */,
+				E7CC5EC616F19784005F850F /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7CC5EC816F19784005F850F /* RenderingPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				E7CC5EC916F19784005F850F /* Supporting Files */,
+			);
+			path = RenderingPlugin;
+			sourceTree = "<group>";
+		};
+		E7CC5EC916F19784005F850F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E7CC5F3B16F1FCAA005F850F /* Project.xcconfig */,
+				E7CC5ECA16F19784005F850F /* RenderingPlugin-Info.plist */,
+				E7CC5ECB16F19784005F850F /* InfoPlist.strings */,
+				E7CC5ED816F197E0005F850F /* RenderingPlugin.cpp */,
+				E7CC5ECE16F19784005F850F /* RenderingPlugin-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E7CC5F0A16F1FBD9005F850F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E7CC5F1116F1FBDA005F850F /* openFrameworksDebug.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E7CC5EC216F19784005F850F /* RenderingPlugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7CC5ED116F19784005F850F /* Build configuration list for PBXNativeTarget "RenderingPlugin" */;
+			buildPhases = (
+				E7CC5EBF16F19784005F850F /* Sources */,
+				E7CC5EC016F19784005F850F /* Frameworks */,
+				E7CC5EC116F19784005F850F /* Resources */,
+				E7CC5F7E16F2077C005F850F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E7CC5F5316F20287005F850F /* PBXTargetDependency */,
+			);
+			name = RenderingPlugin;
+			productName = RenderingPlugin;
+			productReference = E7CC5EC316F19784005F850F /* RenderingPlugin.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E7CC5EBA16F19784005F850F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "James George";
+			};
+			buildConfigurationList = E7CC5EBD16F19784005F850F /* Build configuration list for PBXProject "RenderingPlugin" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E7CC5EB816F19784005F850F;
+			productRefGroup = E7CC5EC416F19784005F850F /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E7CC5F0A16F1FBD9005F850F /* Products */;
+					ProjectRef = E7CC5F0916F1FBD9005F850F /* openFrameworksLib.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				E7CC5EC216F19784005F850F /* RenderingPlugin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E7CC5F1116F1FBDA005F850F /* openFrameworksDebug.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = openFrameworksDebug.a;
+			remoteRef = E7CC5F1016F1FBDA005F850F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E7CC5EC116F19784005F850F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7CC5ECD16F19784005F850F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E7CC5EBF16F19784005F850F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7CC5ED916F197E0005F850F /* RenderingPlugin.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E7CC5F5316F20287005F850F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = openFrameworks;
+			targetProxy = E7CC5F5216F20287005F850F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E7CC5ECB16F19784005F850F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7CC5ECC16F19784005F850F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E7CC5ECF16F19784005F850F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7CC5F3B16F1FCAA005F850F /* Project.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					OF_SOUND_PLAYER_OPENAL,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E7CC5ED016F19784005F850F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7CC5F3B16F1FCAA005F850F /* Project.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = OF_SOUND_PLAYER_OPENAL;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E7CC5ED216F19784005F850F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../libs/glut/lib/osx\"",
+				);
+				INFOPLIST_FILE = "RenderingPlugin/RenderingPlugin-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		E7CC5ED316F19784005F850F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../libs/glut/lib/osx\"",
+				);
+				INFOPLIST_FILE = "RenderingPlugin/RenderingPlugin-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E7CC5EBD16F19784005F850F /* Build configuration list for PBXProject "RenderingPlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7CC5ECF16F19784005F850F /* Debug */,
+				E7CC5ED016F19784005F850F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7CC5ED116F19784005F850F /* Build configuration list for PBXNativeTarget "RenderingPlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7CC5ED216F19784005F850F /* Debug */,
+				E7CC5ED316F19784005F850F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E7CC5EBA16F19784005F850F /* Project object */;
+}
