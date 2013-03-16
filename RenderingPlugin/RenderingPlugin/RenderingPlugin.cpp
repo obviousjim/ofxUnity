@@ -169,6 +169,7 @@ extern "C" void EXPORT_API UnityRenderEvent (int eventID)
 	float cosPhi = cosf(phi);
 	float sinPhi = sinf(phi);
 
+	
 	float worldMatrix[16] = {
 		cosPhi,-sinPhi,0,0,
 		sinPhi,cosPhi,0,0,
@@ -187,6 +188,7 @@ extern "C" void EXPORT_API UnityRenderEvent (int eventID)
 		0,0,1,0,
 		0,0,0,1,
 	};
+	
 
 	// Actual functions defined below
 	SetDefaultGraphicsState ();
@@ -600,6 +602,9 @@ static void DoRendering (const float* worldMatrix, const float* identityMatrix, 
 		m.draw();
 		
 		
+		ofPushMatrix();
+		ofScale(1.0 / 1024, 1.0 / 768);
+		
 		//--------------------------- circles
 		//let's draw a circle:
 		ofSetColor(255,130,0);
@@ -634,7 +639,7 @@ static void DoRendering (const float* worldMatrix, const float* identityMatrix, 
 		ofSetHexColor(0x00FF33);
 		ofRect(400,350,100,100);
 		// alpha is usually turned off - for speed puposes.  let's turn it on!
-		ofEnableAlphaBlending();
+		//ofEnableAlphaBlending();
 		ofSetColor(255,0,0,127);   // red, 50% transparent
 		ofRect(450,430,100,33);
 		ofSetColor(255,0,0,(int)(counter * 10.0f) % 255);   // red, variable transparent
@@ -648,7 +653,7 @@ static void DoRendering (const float* worldMatrix, const float* identityMatrix, 
 		// a bunch of red lines, make them smooth if the flag is set
 		
 		if (bSmooth){
-			ofEnableSmoothing();
+//			ofEnableSmoothing();
 		}
 		
 		ofSetHexColor(0xFF0000);
@@ -657,12 +662,15 @@ static void DoRendering (const float* worldMatrix, const float* identityMatrix, 
 		}
 		
 		if (bSmooth){
-			ofDisableSmoothing();
+//			ofDisableSmoothing();
 		}
 		
 		ofSetHexColor(0x000000);
 		ofDrawBitmapString("lines\npress 's' to toggle smoothness", 600,500);
 		
+		ofPopMatrix();
+		ofLogError("printing from openFrameworks");
+				   
 //		// Vertex layout
 //		glVertexPointer (3, GL_FLOAT, sizeof(verts[0]), &verts[0].x);
 //		glEnableClientState (GL_VERTEX_ARRAY);

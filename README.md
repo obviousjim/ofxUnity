@@ -1,7 +1,7 @@
 ofxUnity
 ========
 
-openFrameworks compiled as a native Unity plug in.
+openFrameworks compiled as a native Unity plug in. Nothing more implemented than a proof of concept compiling and drawing a simple mesh. Still seeing strange crashing...
 
 This is still very incomplete.
 
@@ -12,6 +12,7 @@ If you have a clone of openFrameworks do the following to switch to the right br
 	$ git remote add obviousjim https://github.com/obviousjim/openFrameworks.git
 	$ git fetch obviousjim
 	$ git checkout -b no-fmod obviousjim/no-fmod
+
 
 
 TODO:

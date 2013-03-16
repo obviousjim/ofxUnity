@@ -402,6 +402,7 @@
 				E7CC5ED316F19784005F850F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
