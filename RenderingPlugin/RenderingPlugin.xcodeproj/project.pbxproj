@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DC455E516F526950036E99D /* ofUnityWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DC455E316F526950036E99D /* ofUnityWindow.cpp */; };
 		E7CC5EC716F19784005F850F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CC5EC616F19784005F850F /* CoreFoundation.framework */; };
 		E7CC5ECD16F19784005F850F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7CC5ECB16F19784005F850F /* InfoPlist.strings */; };
 		E7CC5ED916F197E0005F850F /* RenderingPlugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7CC5ED816F197E0005F850F /* RenderingPlugin.cpp */; };
@@ -62,6 +63,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3DC455E316F526950036E99D /* ofUnityWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofUnityWindow.cpp; sourceTree = "<group>"; };
+		3DC455E416F526950036E99D /* ofUnityWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofUnityWindow.h; sourceTree = "<group>"; };
 		E7CC5EC316F19784005F850F /* RenderingPlugin.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RenderingPlugin.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7CC5EC616F19784005F850F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		E7CC5ECA16F19784005F850F /* RenderingPlugin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RenderingPlugin-Info.plist"; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 				E7CC5ECB16F19784005F850F /* InfoPlist.strings */,
 				E7CC5ED816F197E0005F850F /* RenderingPlugin.cpp */,
 				E7CC5ECE16F19784005F850F /* RenderingPlugin-Prefix.pch */,
+				3DC455E416F526950036E99D /* ofUnityWindow.h */,
+				3DC455E316F526950036E99D /* ofUnityWindow.cpp */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7CC5ED916F197E0005F850F /* RenderingPlugin.cpp in Sources */,
+				3DC455E516F526950036E99D /* ofUnityWindow.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +408,7 @@
 				E7CC5ED316F19784005F850F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

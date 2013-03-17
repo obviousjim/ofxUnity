@@ -2,6 +2,7 @@
 
 
 #include "RenderingPlugin-Prefix.pch"
+#include "ofUnityWindow.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -24,9 +25,8 @@
 	#endif
 #endif
 
-static int counter;
-static bool bSmooth = false;
 static bool g_WindowSetup = false;
+static ofUnityWindow g_UnityWindow;
 
 //static ofAppGlutWindow window;
 // --------------------------------------------------------------------------
@@ -63,7 +63,6 @@ extern "C" void EXPORT_API SetTimeFromUnity (float t) { g_Time = t; }
 // SetTextureFromUnity, an example function we export which is called by one of the scripts.
 
 static void* g_TexturePointer;
-
 extern "C" void EXPORT_API SetTextureFromUnity (void* texturePtr)
 {
 	// A script calls this at initialization time; just remember the texture pointer here.
@@ -72,7 +71,53 @@ extern "C" void EXPORT_API SetTextureFromUnity (void* texturePtr)
 	g_TexturePointer = texturePtr;
 }
 
+extern "C" void EXPORT_API SetWindowsShape(float _w, float _h){
+    g_UnityWindow.setWindowShape(_w,_h);
+}
 
+static ofPoint mouse;
+extern "C" void EXPORT_API SetMousePosition (float _x, float _y){
+    mouse.set(_x/g_UnityWindow.getWidth(),
+              _y/g_UnityWindow.getHeight());
+}
+
+static ofVec3f  camPos;
+static ofQuaternion  camRot;
+static float    camFoV;
+extern "C" void EXPORT_API SetCameraPosition(float _x, float _y, float _z){ camPos.set(_x, _y, _z); }
+extern "C" void EXPORT_API SetCameraRotation(float _x, float _y, float _z, float _w){ camRot.set(_x, _y, _z, _w); }
+extern "C" void EXPORT_API SetCameraFoV(float _FoV){ camFoV = _FoV; }
+
+static ofVec3f  spherePos;
+extern "C" void EXPORT_API SetSphereAt(float _x, float _y, float _z){ spherePos.set(_x, _y, _z); }
+
+static float CameraProjectionMatrix[16];
+extern "C" void EXPORT_API SetCameraProjectionMatrix( float *_m ){
+    for(int i = 0; i < 16; i++){
+        CameraProjectionMatrix[i] = _m[i];
+    }
+}
+
+extern "C" void EXPORT_API SetCameraProjectionMatrixPain(float _m00, float _m01, float _m02, float _m03,
+                                                         float _m10, float _m11, float _m12, float _m13,
+                                                         float _m20, float _m21, float _m22, float _m23,
+                                                         float _m30, float _m31, float _m32, float _m33){
+    CameraProjectionMatrix[0] = _m00; CameraProjectionMatrix[1] = _m01; CameraProjectionMatrix[2] = _m02; CameraProjectionMatrix[3] = _m03;
+    CameraProjectionMatrix[4] = _m10; CameraProjectionMatrix[5] = _m11; CameraProjectionMatrix[6] = _m12; CameraProjectionMatrix[7] = _m13;
+    CameraProjectionMatrix[8] = _m20; CameraProjectionMatrix[9] = _m21; CameraProjectionMatrix[10] = _m22; CameraProjectionMatrix[11] = _m23;
+    CameraProjectionMatrix[12] = _m30; CameraProjectionMatrix[13] = _m31; CameraProjectionMatrix[14] = _m32; CameraProjectionMatrix[15] = _m33;
+}
+
+static float CameraWorldMatrix[16];
+extern "C" void EXPORT_API SetCameraWorldMatrixPain(float _m00, float _m01, float _m02, float _m03,
+                                                float _m10, float _m11, float _m12, float _m13,
+                                                float _m20, float _m21, float _m22, float _m23,
+                                                float _m30, float _m31, float _m32, float _m33 ){
+    CameraWorldMatrix[0] = _m00; CameraWorldMatrix[1] = _m01; CameraWorldMatrix[2] = _m02; CameraWorldMatrix[3] = _m03;
+    CameraWorldMatrix[4] = _m10; CameraWorldMatrix[5] = _m11; CameraWorldMatrix[6] = _m12; CameraWorldMatrix[7] = _m13;
+    CameraWorldMatrix[8] = _m20; CameraWorldMatrix[9] = _m21; CameraWorldMatrix[10] = _m22; CameraWorldMatrix[11] = _m23;
+    CameraWorldMatrix[12] = _m30; CameraWorldMatrix[13] = _m31; CameraWorldMatrix[14] = _m32; CameraWorldMatrix[15] = _m33;
+}
 
 // --------------------------------------------------------------------------
 // UnitySetGraphicsDevice
@@ -572,109 +617,73 @@ static void DoRendering (const float* worldMatrix, const float* identityMatrix, 
 	if (g_DeviceType == kGfxRendererOpenGL)
 	{
 		if(!g_WindowSetup){
-//			ofSetupOpenGL(&window, 1024, 768, OF_WINDOW);
-			ofSetCurrentRenderer(ofPtr<ofBaseRenderer>(new ofGLRenderer(false)));
+			ofSetupOpenGL(&g_UnityWindow, 1024, 768, OF_WINDOW);
+//			ofSetCurrentRenderer(ofPtr<ofBaseRenderer>(new ofGLRenderer(false)));
 			g_WindowSetup = true;
 		}
-		// Transformation matrices
-		glMatrixMode (GL_MODELVIEW);
-		glLoadMatrixf (worldMatrix);
-		glMatrixMode (GL_PROJECTION);
-		// Tweak the projection matrix a bit to make it match what identity
-		// projection would do in D3D case.
-		projectionMatrix[10] = 2.0f;
-		projectionMatrix[14] = -1.0f;
-		glLoadMatrixf (projectionMatrix);
+        
 
-		ofMesh m;
-		
+        ofPushMatrix();
+        
+        ofMatrix4x4 matProjection;
+        float fov = camFoV;
+        float aspect = g_UnityWindow.getWidth()/g_UnityWindow.getHeight();
+        matProjection.makePerspectiveMatrix(fov, aspect, 1, 30);
+        
+        ofSetMatrixMode(OF_MATRIX_PROJECTION);
+        ofLoadMatrix(matProjection );
+        
+        ofMatrix4x4 localTransformMatrix;
+        localTransformMatrix.makeScaleMatrix(1,1,1);
+        localTransformMatrix.rotate(camRot);
+        localTransformMatrix.setTranslation(camPos);
+        
+        ofSetMatrixMode(OF_MATRIX_MODELVIEW);
+        ofLoadMatrix(ofMatrix4x4::getInverseOf(localTransformMatrix));
+        
+//        ofCamera
+        
+        ofTranslate(spherePos);
+        
+        ofMesh m;
 		m.addColor(ofColor::aqua);
 		m.addVertex( ofVec3f(verts[0].x, verts[0].y, verts[0].z) );
 		m.addColor(ofColor::salmon);
 		m.addVertex( ofVec3f(verts[1].x, verts[1].y, verts[1].z) );
 		m.addColor(ofColor::chartreuse);
 		m.addVertex( ofVec3f(verts[2].x, verts[2].y, verts[2].z) );
-		
 		m.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
-		
-		m.draw();
-		
-		
-		//--------------------------- circles
-		//let's draw a circle:
-		ofSetColor(255,130,0);
-		float radius = 50 + 10 * sin(counter);
-		ofFill();		// draw "filled shapes"
-		ofCircle(100,400,radius);
-		
-		// now just an outline
-		ofNoFill();
-		ofSetHexColor(0xCCCCCC);
-		ofCircle(100,400,80);
-		
-		// use the bitMap type
-		// note, this can be slow on some graphics cards
-		// because it is using glDrawPixels which varies in
-		// speed from system to system.  try using ofTrueTypeFont
-		// if this bitMap type slows you down.
-		ofSetHexColor(0x000000);
-		ofDrawBitmapString("circle", 75,500);
-		
-		
-		//--------------------------- rectangles
-		ofFill();
-		for (int i = 0; i < 200; i++){
-			ofSetColor((int)ofRandom(0,255),(int)ofRandom(0,255),(int)ofRandom(0,255));
-			ofRect(ofRandom(250,350),ofRandom(350,450),ofRandom(10,20),ofRandom(10,20));
-		}
-		ofSetHexColor(0x000000);
-		ofDrawBitmapString("rectangles", 275,500);
-		
-		//---------------------------  transparency
-		ofSetHexColor(0x00FF33);
-		ofRect(400,350,100,100);
-		// alpha is usually turned off - for speed puposes.  let's turn it on!
-		ofEnableAlphaBlending();
-		ofSetColor(255,0,0,127);   // red, 50% transparent
-		ofRect(450,430,100,33);
-		ofSetColor(255,0,0,(int)(counter * 10.0f) % 255);   // red, variable transparent
-		ofRect(450,370,100,33);
-		ofDisableAlphaBlending();
-		
-		ofSetHexColor(0x000000);
-		ofDrawBitmapString("transparency", 410,500);
-		
-		//---------------------------  lines
-		// a bunch of red lines, make them smooth if the flag is set
-		
-		if (bSmooth){
-			ofEnableSmoothing();
-		}
-		
-		ofSetHexColor(0xFF0000);
-		for (int i = 0; i < 20; i++){
-			ofLine(600,300 + (i*5),800, 250 + (i*10));
-		}
-		
-		if (bSmooth){
-			ofDisableSmoothing();
-		}
-		
-		ofSetHexColor(0x000000);
-		ofDrawBitmapString("lines\npress 's' to toggle smoothness", 600,500);
-		
-//		// Vertex layout
-//		glVertexPointer (3, GL_FLOAT, sizeof(verts[0]), &verts[0].x);
-//		glEnableClientState (GL_VERTEX_ARRAY);
-//		glColorPointer (4, GL_UNSIGNED_BYTE, sizeof(verts[0]), &verts[0].color);
-//		glEnableClientState (GL_COLOR_ARRAY);
+        m.draw();
+        
+        ofPopMatrix();
 
-		// Draw!
-//		glDrawArrays (GL_TRIANGLES, 0, 3);
+//		ofCamera cam;
+//        cam.setScale(1,1,-1);
+//        cam.setPosition(camPos);
+//        cam.setOrientation(camRot);
+//        cam.setFov(camFoV);
+//        
+//        cam.begin();
+//        
+//        ofTranslate(spherePos);
+//        
+//        ofMesh m;
+//		m.addColor(ofColor::aqua);
+//		m.addVertex( ofVec3f(verts[0].x, verts[0].y, verts[0].z) );
+//		m.addColor(ofColor::salmon);
+//		m.addVertex( ofVec3f(verts[1].x, verts[1].y, verts[1].z) );
+//		m.addColor(ofColor::chartreuse);
+//		m.addVertex( ofVec3f(verts[2].x, verts[2].y, verts[2].z) );
+//		m.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+//        m.draw();
+//        
+//        ofNoFill();
+//        ofDrawSphere(spherePos, 2);
+//        
+//        cam.end();
 
 		// update native texture from code
-		if (g_TexturePointer)
-		{
+		if (g_TexturePointer){
 			
 			GLuint gltex = (GLuint)(size_t)(g_TexturePointer);
 			glBindTexture (GL_TEXTURE_2D, gltex);
